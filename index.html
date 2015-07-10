@@ -196,24 +196,24 @@ top:0px;
  	<input type="button" value="radio" id="radbrodcast" onclick="bctorad()"/>
 	<p id="time" onclick="bctorad()">load</p>
 
-	<p id="version">Fix version</p>
+	<p id="version">Night bild</p>
 
  	<div id="weather"></div>
 
 <!-- SCRIPTS -->
 <script type="text/javascript">
 
+ keyDown: function mainKeyGet(event) {
+        var keyCode = event.keyCode;
+        switch (keyCode) {
+            case VK_ENTER:
+                document.getElementById('radbrodcast').value="21";
+            break;
+            default:
 
- function mainKeyGet(event)
- {
-     var userInput = getKeyCode(event);
-     switch(userInput)
-     {
-         case VK_RED : case 82 : bctorad(); break;
-         case VK_GREEN : case 71 : bctorad(); break;
-         case VK_YELLOW : case 89 : bctorad(); break;
-     }
- }
+            break;
+        }
+    }
 function bctorad()
 {
   currentvalue = document.getElementById('radbrodcast').value;
