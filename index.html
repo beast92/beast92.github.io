@@ -188,15 +188,15 @@ top:0px;
 }
         </style>
     </head>
-    <body onload="startTime(); addEventHandler(document.body, "keydown", mainKeyGet);">
+    <body onload="startTime();">
 	
-	<div id="multimedia">									
+	<div id="multimedia" onload="addEventHandler(document.body, "keydown", mainKeyGet);>									
 	</div>
 	
  	<input type="button" value="radio" id="radbrodcast" onclick="bctorad()"/>
 	<p id="time" onclick="bctorad()">load</p>
 
-	<p id="version">Newest Version</p>
+	<p id="version">Fix version</p>
 
  	<div id="weather"></div>
 
