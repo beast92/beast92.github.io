@@ -4,10 +4,11 @@
     <head>
         <title>TV Overlay</title>
         <meta http-equiv="content-type" content="application/ce-html+xml;charset=UTF-8;supportspointer=false"/>
-        <link rel="Stylesheet" type="text/css"  href="lg/jsLgVKeyboard/LgVKeyboard.css" />  
+		<script language="javascript" src="./js/keycode.js"></script>
+		<script language="javascript" src="./js/common.js"></script>
+		<script language="javascript" src="./js/menu.js"></script>
 		<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script> 
 		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.simpleWeather/3.0.2/jquery.simpleWeather.min.js"></script> 
-        <script id="mainVKScript" type="text/javascript" src="lg/jsLgVKeyboard/LgVKeyboard.js"></script> 
 <script type="text/javascript">		
 $(document).ready(function() {
   $.simpleWeather({
@@ -160,6 +161,9 @@ i="0" + i;
 return i;
 }
 </script> 
+
+
+
 <style type="text/css">
 
 #time{
@@ -185,15 +189,42 @@ top:0px;
         </style>
     </head>
     <body onload="startTime()">
- 		<object id="broadcast" type="application/x-netcast-broadcast" width=1280
-                                height=720></object>							<p id="time">load</p>
+	
+	<div id="multimedia">									
+	</div>
+	
+ 	<input type="button" value="radio" id="radbrodcast" onclick="bctorad()"/>
+	<p id="time" onclick="bctorad()">load</p>
 
-		<p id="version">Version control add back</p>
+	<p id="version">Version control add back</p>
 
- 		<div id="weather"></div>
-		
+ 	<div id="weather"></div>
 
-		
-
+<!-- SCRIPTS -->
+<script type="text/javascript">
+function onUserInput(userInput)
+	{
+		switch(userInput)
+		{
+			case VK_BACK : window.location.replace("../menu_netcast.html"); break;
+			case VK_RED : case 82 : bctorad(); break;
+			case VK_GREEN : case 71 : bctorad(); break;
+		}
+	}
+function bctorad()
+{
+  currentvalue = document.getElementById('radbrodcast').value;
+  if(currentvalue == "broadcast")
+  {
+    document.getElementById('multimedia').innerHTML='';
+    document.getElementById("radbrodcast").value="radio";
+	document.getElementById('multimedia').innerHTML='<object id="broadcast" type="application/x-netcast-broadcast" width=1280 height=720></object>';
+  }else{
+	document.getElementById('multimedia').innerHTML='';
+    document.getElementById("radbrodcast").value="broadcast";
+	document.getElementById('multimedia').innerHTML='<object id="radioplay" type="audio/mpeg" data="http://online-radioroks.tavrmedia.ua/RadioROKS" width="0" height="0" id="media"></object>';
+  }
+}
+</script>
 		</body>
 </html>
