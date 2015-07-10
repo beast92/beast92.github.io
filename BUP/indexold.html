@@ -1,0 +1,273 @@
+﻿<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+<style type="text/css">
+   A:link { 
+    text-decoration: none;
+    color: white;
+    font-size: 1.5em; /* Убирает подчеркивание для ссылок */
+   } 
+   A:visited {font-size: 1.5em; text-decoration: none; color:#f0f0f0;} 
+   A:active {font-size: 1.5em; text-decoration: none; }
+   A:hover {
+    text-decoration: none; /* Делает ссылку подчеркнутой при наведении на нее курсора */
+    color: #e0e0e0;
+    font-size: 1.5em; /* Цвет ссылки */
+   } 
+  </style>
+
+
+<style>
+		/*div - контейнер для новости*/
+		   
+			/*div - контейнер для новости*/
+		   
+		.rss{
+		text-align: justify;
+		color: white;
+		margin:10px; padding: 10px; border-top:2px solid #FFFFFF; border-bottom: 2px solid #FFFFF;
+		}
+
+
+		/*div - контейнер для всей ленты*/
+		.rss_container{padding:10px; float:right; color: #F0F8FF; width:440px;
+		height:880px;
+		overflow: auto; }
+		
+		/*div - контейнер для медиа-файлов*/
+		.media{background-color:#f0f0f0; background-image:url(http://www.rss-script.ru/img/skrepka.gif); background-repeat:no-repeat; padding-top: 5px;padding-bottom: 5px;padding-left: 13px}
+		
+		/*div - ссылка на медиа-файл*/
+		.media a{color:#FFFFFF;font-size:0.7em}
+		
+		/*div - изображение медиа-файл*/
+		.media a img{height:16px; border:0px; vertical-align: middle; text-decoration: none; margin:3px;}
+		
+		/*div - контейнер даты новости и заголовка rss-канала*/
+		.rssdate{font-size:0.7em; color:#c0c0c0; margin:7px; }
+		
+		/*div - ссылка даты новости и заголовка rss-канала*/
+		.rssdate a{color:#000000;}
+		
+		</style>
+<style type="text/css">
+
+
+
+#line{border-top:3px solid #FFFFFF;}
+
+#rightp{
+		float: right;
+		width:420px;
+		border-left:3px solid #FFFFFF;
+}
+#searched{
+		border-top:3px solid #FFFFFF;
+		border-bottom:3px solid #FFFFFF;
+		height:245px;
+	}
+
+#tfheader{
+		width:378px;
+		border-right:3px solid #FFFFFF;
+	}
+
+	#tfnewsearch{
+		float:center;
+		padding:20px;
+		
+	}
+	.tftextinput{
+		margin: 0;
+		color: #ffffff;
+		padding: 5px 15px;
+		font-family: Arial, Helvetica, sans-serif;
+		font-size:14px;
+		border:1px solid #FFFFFF; border-right:0px;
+		border-top-left-radius: 5px 5px;
+		border-bottom-left-radius: 5px 5px;
+		background: #000000;
+	}
+	.tfbutton {
+			margin: 0;
+		padding: 5px 15px;
+		font-family: Arial, Helvetica, sans-serif;
+		font-size:14px;
+		outline: none;
+		cursor: pointer;
+		text-align: center;
+		text-decoration: none;
+		color: #FFFFFF;
+		border: solid 2px #FFFFF; border-right:1px #FFFFF;
+		background: #000000;
+		border-top-left-radius: 2px 2px;
+		border-bottom-left-radius: 2px 2px;
+		border-top-right-radius: 5px 5px;
+		border-bottom-right-radius: 5px 5px;
+	}
+
+	.tfbutton:hover {
+		text-decoration: none;
+		background: #1C1C1C;
+	}
+
+	/* Fixes submit button height problem in Firefox */
+	.tfbutton::-moz-focus-inner {
+	  border: 0;
+	}
+	.tfclear{
+		clear:both;
+	}
+
+  body{
+    background-color: #000000;
+   } 
+</style>
+
+
+<style>
+
+#IUAfinance22 { min-width: 175px; width: 375px; cursor: pointer;}
+#IUAfinance22 * {margin: 0; padding: 0;}
+#IUAfinance22 .content {overflow: hidden; padding: 4px; font-family: Arial; font-size: 10px; color: #FFFFFF; background: #000000; 
+border-top:3px solid #FFFFFF;
+border-bottom:3px solid #FFFFFF;}
+#IUAfinance22 h1 {overflow: hidden; margin-top: -4px; font-size: 12px; font-weight: bold; height: 20px; line-height: 20px; color: #eeeeee;}
+#IUAfinance22 h1 span {float: left; white-space: nowrap;}
+#IUAfinance22 h1 i {float: right; display: inline-block; width: 36px; height: 15px; background: url(http://i.i.ua/v2/logo/logo_small_14_black.png) no-repeat 0 1px transparent; opacity: .3;}
+#IUAfinance22 a, #IUAfinance22 a:hover {border: none; text-decoration: underline; color: #eeeeee;}
+#IUAfinance22 dl {overflow: hidden; background: #000000; padding: 4px; margin-bottom: 4px;}
+#IUAfinance22 dl dt {font-weight: bold; font-size: 12px;}
+#IUAfinance22 dl dd {clear: left; border-top: 1px dotted #DDD;}
+#IUAfinance22 dl span {display: block; float: left; width: 39%; white-space: nowrap; text-align: right;}
+#IUAfinance22 dl span.th {width: 22%; text-align: left;}
+#IUAfinance22 dl dt span {font-size: 10px; font-weight: normal;}
+#IUAfinance22 dl dd span {line-height: 24px; font-size: 20px; font-family: Trebuchet MS;}
+#IUAfinance22 dl dd span img {vertical-align: middle; margin-right: 1px;}
+</style>
+
+
+   </head>
+   <body>
+	
+
+
+
+
+
+<div id="rightp" align="center">
+
+<iframe align="center" scrolling="no" height="480" width="375" src="http://www.radioroks.ua/player/" frameborder="0"></iframe>
+
+<div id="line"></div>
+<iframe float="center" height="600" width="420" src="http://pleer.com/mobile/playlists" frameborder="0"></iframe>
+  
+
+</div>
+
+
+<iframe align="right" height="100" width="440" src="http://www.google.com/trends/hottrends/visualize?nrow=1&amp;ncol=4&amp;pn=p35&amp;hl=ru" frameborder="0"></iframe>
+
+
+
+
+<script type="text/javascript">var charset='UTF-8';var t=document.getElementsByTagName('meta');for(var i=0; i<t.length; i++){var rg=/charset=["']?([^"']*)/g;if(t[i].content.indexOf('charset')!=-1){charset=rg.exec(t[i].content)[1];break;}}document.write('<script type="text/javascript" src="http://www.rss-script.ru/rss-script.php?charset='+charset+'&rss[]=http%3A%2F%2Fzadolba.li%2Frss&rss[]=http%3A%2F%2Fithappens.me%2Frss&rss[]=http%3A%2F%2Fbash.im%2Frss%2F&notitle=1&count=50"><\/script>');</script><noscript>Для просмотра этой RSS ленты требуется поддержка Java Script</noscript>
+
+
+
+
+
+
+
+<div id="tfheader">
+
+
+<script type="text/javascript" src="http://www.24webclock.com/clock24.js"></script>
+<table border="0" cellspacing="1" cellpadding="3" class="clock24st" style="line-height:14px; padding:10px;">
+<tbody><tr><td class="clock24std" style="font-family:sans-serif; font-size:26px;"><a href=""><img src="http://s1.iconbird.com/ico/0512/BrushedMetalIcons/file1336772739.png" width="14" height="14" border="0" alt="Bash" align="left" hspace="2"></a> <a href="https://www.google.com/calendar/render?hl=ru&pli=1#g%7Cmonth-3" style="text-decoration:none;"><span class="clock24s" id="clock24_14395" style="color:#FFFFFF;">2014/11/02 Вс 12:59:16 PM</span></a></td></tr>
+</tbody></table>
+<script type="text/javascript">
+var clock24_14395 = new clock24('14395',120,'%W, %dd %M %hh:%nn','ru');
+clock24_14395.daylight('UA'); clock24_14395.refresh();
+</script>
+<div id="searched" align="center">
+
+
+
+
+<form id="tfnewsearch" method="get" action="http://www.google.com/search">
+		        <input type="search" placeholder="Поиск Google" class="tftextinput" name="q" size="21" maxlength="120"><input type="submit" value="Google Поиск" class="tfbutton">
+		</form>
+
+
+
+<form id="tfnewsearch" method="get" action="http://fs.to/search.aspx">
+		        <input type="search" placeholder="Найти фильм" class="tftextinput" name="search" size="21" maxlength="120"><input type="submit" value="FS.TO Поиск" class="tfbutton">
+		</form>
+  
+ <form action="http://ru.wikipedia.org/w/index.php" id="tfnewsearch">
+	<div id="simpleSearch">
+		<input type="search" name="search" class="tftextinput" size="21" placeholder="Найти статью" accesskey="f" id="searchInput" tabindex="1" autocomplete="on" ><input type="hidden" value="Служебная:Поиск" name="title"><input type="submit" class="tfbutton" name="go" value="WIKI Поиск" title="Перейти к странице, имеющей в точности такое название" id="searchButton"></div>
+</form>
+
+
+<link rel="stylesheet" type="text/css" href="http://www.gismeteo.ua/static/css/informer2/gs_informerClient.min.css">
+<div id="gsInformerID-iBB37BIYbbWIli" class="gsInformer" style="width:375px;height:225px">
+  <div class="gsIContent">
+   <div id="cityLink">
+     <a href="http://www.gismeteo.ua/weather-krasnoarmiyske-5079/" target="_blank">Погода в Красноармейске</a>
+   </div>
+   <div class="gsLinks">
+     <table>
+       <tr>
+         <td>
+           <div class="leftCol">
+             <a href="http://www.gismeteo.ua" target="_blank">
+               <img alt="Gismeteo" title="Gismeteo" src="http://www.gismeteo.ua/static/images/informer2/logo-mini2.png" align="absmiddle" border="0" />
+               <span>Gismeteo</span>
+             </a>
+           </div>
+           <div class="rightCol">
+             <a href="http://www.gismeteo.ua/weather-krasnoarmiyske-5079/14-days/" target="_blank">Погода на 2 недели</a>
+           </div>
+           </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
+<script src="http://www.gismeteo.ua/ajax/getInformer/?hash=iBB37BIYbbWIli" type="text/javascript"></script>
+<!-- Gismeteo informer END -->
+
+
+
+<div id="IUAfinance22">
+	<div class="content">
+		<h1><span><a href="http://finance.i.ua/bank/15/" id="IUAfinance22TitleLink">Курсы валют</a></span><i></i></h1>
+		<dl id="IUAfinance22Embed"></dl>
+		<a href="http://finance.i.ua/">Курсы доллара, евро и рубля по банкам</a>
+	</div>
+</div>
+<script type="text/javascript">
+if (typeof(iFinance) == "undefined") {
+	if (typeof(iFinanceData) == "undefined") {
+		document.write('<scr' + 'ipt src="http://i.i.ua/js/i/finance_informer.js?1" type="text/javascript" charset = "windows-1251"></scr' + 'ipt>');
+		iFinanceData = [];
+	}
+	iFinanceData.push({b:15,c:[840,978,643],enc:0, lang:0,p:'22'});
+} else {
+	window['oiFinance22'] = new iFinance();
+	window['oiFinance22'].gogo({b:15,c:[840,978,643],enc:0, lang:0,p:'22'});
+}
+</script>
+ 
+</div>
+	
+<div class="tfclear"></div>
+
+
+</div>
+  
+
+   
+</body></html>
