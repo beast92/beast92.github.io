@@ -177,18 +177,23 @@ return i;
 		text-align: center;
 		width: 60px;
 	}
+#broadcast{
+position: absolute;
+left: 0px;
+top:0px;
+}
         </style>
     </head>
     <body onload="startTime()">
-        <p id="time">load</p>
+ 		<object id="broadcast" type="application/x-netcast-broadcast" width=1280
+                                height=720></object>							<p id="time">load</p>
 
 		<p id="version">Version control add back</p>
 
  		<div id="weather"></div>
 		
-		<object id="broadcast" type="application/x-netcast-broadcast" width=240
-                                height=180></object>
+
 		
- 
+
 		</body>
 </html>
