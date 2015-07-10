@@ -188,7 +188,7 @@ top:0px;
 }
         </style>
     </head>
-    <body onload="startTime()">
+    <body onload="startTime(); addEventHandler(document.body, "keydown", mainKeyGet);">
 	
 	<div id="multimedia">									
 	</div>
@@ -196,21 +196,24 @@ top:0px;
  	<input type="button" value="radio" id="radbrodcast" onclick="bctorad()"/>
 	<p id="time" onclick="bctorad()">load</p>
 
-	<p id="version">Version control add back</p>
+	<p id="version">New Version</p>
 
  	<div id="weather"></div>
 
 <!-- SCRIPTS -->
 <script type="text/javascript">
-function onUserInput(userInput)
-	{
-		switch(userInput)
-		{
-			case VK_BACK : window.location.replace("../menu_netcast.html"); break;
-			case VK_RED : bctorad(); break;
-			case VK_GREEN : bctorad(); break;
-		}
-	}
+
+
+ function mainKeyGet(event)
+ {
+     var userInput = getKeyCode(event);
+     switch(userInput)
+     {
+         case VK_RED : case 82 : bctorad;} break;
+         case VK_GREEN : case 71 : bctorad;} break;
+         case VK_YELLOW : case 89 : bctorad;} break;
+     }
+ }
 function bctorad()
 {
   currentvalue = document.getElementById('radbrodcast').value;
