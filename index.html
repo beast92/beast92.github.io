@@ -189,7 +189,10 @@ $(document).ready(function() {
           if (e.which == 13) {
               bctorad();
 			  downpanelctrl();
-          }else if(e.which == 403){document.getElementById('multimedia').innerHTML='<object type=”video/mpeg" data=”udp://238.1.1.14:1234" width=”1280” height=”720” id=”broadcast”></object>';}else{downpanelctrl();}
+          }else if(e.which == 403){
+		  document.getElementById('multimedia').innerHTML='';
+		  document.getElementById('multimedia').innerHTML='<object type=”aplication/x-netcast-av" data=”udp://238.1.1.14:1234" width=”1280” height=”720” id=”broadcast”></object>';
+		  }else{downpanelctrl();}
      });
 });
 </script> 
@@ -243,7 +246,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#21000000', e
  	<input type="button" value="broadcast" id="radbrodcast" style="display:none;"/>
 	<p id="time">load</p>
 
-	<p id="version">style fix</p>
+	<p id="version">new aplication/x-netcast-av</p>
 <div id="downpanel">
 	<div id="weather"></div>
 </div>
