@@ -161,8 +161,15 @@ i="0" + i;
 return i;
 }
 </script> 
-
-
+<script type="text/javascript">
+$(document).ready(function() {
+     $("body").keypress(function(e) {
+          if (e.which == 13) {
+              bctorad();
+          }
+     });
+});
+</script> 
 
 <style type="text/css">
 
