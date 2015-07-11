@@ -166,6 +166,8 @@ $(document).ready(function() {
      $("body").keypress(function(e) {
           if (e.which == 13) {
               bctorad();
+			  document.getElementById('downpanel').style.display = 'block';
+			  a=setTimeout('downpanelctrl()', 6000);
           }
      });
 });
@@ -212,19 +214,22 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#21000000', e
 }
         </style>
     </head>
-    <body onload="startTime(); bctorad();">
+    <body onload="startTime(); bctorad(); downpanelctrl();">
 	
 	<div id="multimedia"></div>
 	
  	<input type="button" value="broadcast" id="radbrodcast" style="display:none;"/>
 	<p id="time">load</p>
 
-	<p id="version">down panel fix</p>
-<div id="downpanel" style="position: absolute;">
+	<p id="version">style fix</p>
+<div id="downpanel">
  	<div id="weather"></div>
 </div>
 <!-- SCRIPTS -->
 <script type="text/javascript">
+function downpanelctrl(){
+if(document.getElementById('radbrodcast').value=="radio"){document.getElementById('downpanel').style.display = 'none';}else{document.getElementById('downpanel').style.display = 'block';}
+}
 function bctorad()
 {
   currentvalue = document.getElementById('radbrodcast').value;
