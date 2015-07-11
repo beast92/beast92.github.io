@@ -146,7 +146,7 @@ var m=tm.getMinutes();
 var s=tm.getSeconds();
 m=checkTime(m);
 s=checkTime(s);
-var deltime=21;
+var deltime=22;
 
 if (h==0)
 {
@@ -154,6 +154,7 @@ h=24;
 }
 if(deltime!=h){
 deltime=h; 
+document.getElementById('version').innerHTML="weather refreshed";
 $.simpleWeather({
     location: 'Donetsk, Ukraine',
     woeid: '',
@@ -169,7 +170,6 @@ $.simpleWeather({
       $("#weather").html('<p>'+error+'</p>');
     }
   });
-document.getElementById('version').innerHTML="weather refreshed";
 }
 document.getElementById('time').innerHTML=h-1+":"+m;
 t=setTimeout('startTime()',500);
