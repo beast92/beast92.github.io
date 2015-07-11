@@ -166,9 +166,8 @@ $(document).ready(function() {
      $("body").keypress(function(e) {
           if (e.which == 13) {
               bctorad();
-			  document.getElementById('downpanel').style.display = 'block';
-			  a=setTimeout('downpanelctrl()', 6000);
-          }
+			  downpanelctrl();
+          }else{downpanelctrl();}
      });
 });
 </script> 
@@ -228,7 +227,8 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#21000000', e
 <!-- SCRIPTS -->
 <script type="text/javascript">
 function downpanelctrl(){
-if(document.getElementById('radbrodcast').value=="radio"){document.getElementById('downpanel').style.display = 'none';}else{document.getElementById('downpanel').style.display = 'block';}
+document.getElementById('downpanel').style.display = 'block';
+hidewait=setTimeout(function(){if(document.getElementById('radbrodcast').value=="radio"){document.getElementById('downpanel').style.display = 'none';}else{document.getElementById('downpanel').style.display = 'block';};}, 6000);
 }
 function bctorad()
 {
