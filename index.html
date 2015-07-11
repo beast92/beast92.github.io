@@ -184,7 +184,7 @@ $(document).ready(function() {
 		border-top-left-radius: 5px 5px;
 		border-bottom-left-radius: 5px 5px;
 		background: #000000;
-		opacity: 0.8;
+		opacity: 0.9;
 		text-align: center;
 		width: 60px;
 	}
@@ -193,15 +193,16 @@ position: absolute;
 left: 0px;
 top:0px;
 }
+#version{color: white;}
         </style>
     </head>
-    <body onload="startTime();">
+    <body onload="startTime(); bctorad();">
 	
 	<div id="multimedia" onload="addEventHandler(document.body, "keydown", mainKeyGet);>									
 	</div>
 	
- 	<input type="button" value="radio" id="radbrodcast" onclick="bctorad()"/>
-	<p id="time" onclick="bctorad()">load</p>
+ 	<input type="button" value="broadcast" id="radbrodcast" style="display:none;" onclick="bctorad()"/>
+	<p id="time">load</p>
 
 	<p id="version">Night bild</p>
 
@@ -209,29 +210,17 @@ top:0px;
 
 <!-- SCRIPTS -->
 <script type="text/javascript">
-
- keyDown: function mainKeyGet(event) {
-        var keyCode = event.keyCode;
-        switch (keyCode) {
-            case VK_ENTER:
-                document.getElementById('radbrodcast').value="21";
-            break;
-            default:
-
-            break;
-        }
-    }
 function bctorad()
 {
   currentvalue = document.getElementById('radbrodcast').value;
   if(currentvalue == "broadcast")
   {
     document.getElementById('multimedia').innerHTML='';
-    document.getElementById("radbrodcast").value="radio";
+    document.getElementById('radbrodcast').value="radio";
 	document.getElementById('multimedia').innerHTML='<object id="broadcast" type="application/x-netcast-broadcast" width=1280 height=720></object>';
   }else{
 	document.getElementById('multimedia').innerHTML='';
-    document.getElementById("radbrodcast").value="broadcast";
+    document.getElementById('radbrodcast').value="broadcast";
 	document.getElementById('multimedia').innerHTML='<object id="radioplay" type="audio/mpeg" data="http://online-radioroks.tavrmedia.ua/RadioROKS" width="0" height="0" id="media"></object>';
   }
 }
