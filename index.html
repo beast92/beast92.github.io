@@ -17,6 +17,7 @@ $(document).ready(function() {
     unit: 'c',
     success: function(weather) {
       html = '<h2><i class="icon-'+weather.code+'"></i> '+weather.temp+'&deg;'+weather.units.temp+'</h2>';
+	  document.getElementById('version').innerHTML+=" "+weather.currently+" "+weather.wind.speed;
       html += '<li class="currently">'+weather.currently+'</li>';
       html += '<li>'+weather.wind.direction+' '+weather.wind.speed+' '+weather.units.speed+'</li></ul>';
   
@@ -153,7 +154,7 @@ h=24;
 }
 if(deltime!=h){
 deltime=h; 
-document.getElementById('version').innerHTML="weather refreshed at:"+h+":"+m;
+document.getElementById('version').innerHTML+=" weather refreshed at:"+h+":"+m;
 $.simpleWeather({
     location: 'Donetsk, Ukraine',
     woeid: '',
