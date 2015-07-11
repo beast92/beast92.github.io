@@ -134,6 +134,7 @@ i {
 #weather .currently {
   margin: 0 20px;
 }
+body{background-color: black;}
 </style>
 		<html> <head>
 <script type="text/javascript">
@@ -145,6 +146,26 @@ var m=tm.getMinutes();
 var s=tm.getSeconds();
 m=checkTime(m);
 s=checkTime(s);
+var deltime=21;
+if(deltime!=h){
+deltime=h; 
+$.simpleWeather({
+    location: 'Donetsk, Ukraine',
+    woeid: '',
+    unit: 'c',
+    success: function(weather) {
+      html = '<h2><i class="icon-'+weather.code+'"></i> '+weather.temp+'&deg;'+weather.units.temp+'</h2>';
+      html += '<li class="currently">'+weather.currently+'</li>';
+      html += '<li>'+weather.wind.direction+' '+weather.wind.speed+' '+weather.units.speed+'</li></ul>';
+  
+      $("#weather").html(html);
+    },
+    error: function(error) {
+      $("#weather").html('<p>'+error+'</p>');
+    }
+  });
+document.getElementById('version').innerHTML="weather refreshed";
+}
 if (h==0)
 {
 h=24;
@@ -211,6 +232,7 @@ background: -ms-linear-gradient(top,  rgba(0,0,0,0.13) 0%,rgba(0,0,0,0.88) 100%)
 background: linear-gradient(to bottom,  rgba(0,0,0,0.13) 0%,rgba(0,0,0,0.88) 100%); /* W3C */
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#21000000', endColorstr='#e0000000',GradientType=0 ); /* IE6-9 */
 }
+
         </style>
     </head>
     <body onload="startTime(); bctorad(); downpanelctrl();">
