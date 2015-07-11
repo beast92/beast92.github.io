@@ -138,23 +138,22 @@ body{background-color: black;}
 </style>
 		<html> <head>
 <script type="text/javascript">
+var deltime=0;
 function startTime()
 {
 var tm=new Date();
 var h=tm.getHours();
 var m=tm.getMinutes();
-var s=tm.getSeconds();
+var sek=tm.getSeconds();
 m=checkTime(m);
-s=checkTime(s);
-var deltime=22;
-
+sek=checkTime(sek);
 if (h==0)
 {
 h=24;
 }
 if(deltime!=h){
 deltime=h; 
-document.getElementById('version').innerHTML="weather refreshed";
+document.getElementById('version').innerHTML="weather refreshed at:"+h+":"+m;
 $.simpleWeather({
     location: 'Donetsk, Ukraine',
     woeid: '',
@@ -174,13 +173,13 @@ $.simpleWeather({
 document.getElementById('time').innerHTML=h-1+":"+m;
 t=setTimeout('startTime()',500);
 }
-function checkTime(i)
+function checkTime(cv)
 {
-if (i<10)
+if (cv<10)
 {
-i="0" + i;
+cv="0" + cv;
 }
-return i;
+return cv;
 }
 </script> 
 <script type="text/javascript">
@@ -245,14 +244,16 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#21000000', e
 
 	<p id="version">style fix</p>
 <div id="downpanel">
- 	<div id="weather"></div>
+	<div id="weather"></div>
 </div>
 <!-- SCRIPTS -->
 <script type="text/javascript">
+<!-- down panel controller -->
 function downpanelctrl(){
 document.getElementById('downpanel').style.display = 'block';
 hidewait=setTimeout(function(){if(document.getElementById('radbrodcast').value=="radio"){document.getElementById('downpanel').style.display = 'none';}else{document.getElementById('downpanel').style.display = 'block';};}, 6000);
 }
+<!-- swap betwen radio and broadcast -->
 function bctorad()
 {
   currentvalue = document.getElementById('radbrodcast').value;
