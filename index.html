@@ -189,7 +189,7 @@ $(document).ready(function() {
           if (e.which == 13) {
               bctorad();
 			  downpanelctrl();
-          }else{downpanelctrl();}
+          }else if(e.which == 403){document.getElementById('version').innerHTML+="red key pressed";}else{downpanelctrl();}
      });
 });
 </script> 
