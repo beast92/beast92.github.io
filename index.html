@@ -147,6 +147,11 @@ var s=tm.getSeconds();
 m=checkTime(m);
 s=checkTime(s);
 var deltime=21;
+
+if (h==0)
+{
+h=24;
+}
 if(deltime!=h){
 deltime=h; 
 $.simpleWeather({
@@ -165,10 +170,6 @@ $.simpleWeather({
     }
   });
 document.getElementById('version').innerHTML="weather refreshed";
-}
-if (h==0)
-{
-h=24;
 }
 document.getElementById('time').innerHTML=h-1+":"+m;
 t=setTimeout('startTime()',500);
