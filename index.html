@@ -10,23 +10,29 @@
 		<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script> 
 		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.simpleWeather/3.0.2/jquery.simpleWeather.min.js"></script> 
 <script type="text/javascript">		
-$(document).ready(function() {
+$(document).ready(function() {  
+  getWeather(); //Get the initial weather.
+  setInterval(getWeather, 600000); //Update the weather every 10 minutes.
+});
+
+function getWeather() {
   $.simpleWeather({
     location: 'Donetsk, Ukraine',
     woeid: '',
     unit: 'c',
     success: function(weather) {
       html = '<h2><i class="icon-'+weather.code+'"></i> '+weather.temp+'&deg;'+weather.units.temp+'</h2>';
-      html += '<li class="currently">'+weather.currently+'</li>';
-      html += '<li>'+weather.wind.direction+' '+weather.wind.speed+' '+weather.units.speed+'</li></ul>';
-  
+	  var wspd=weather.wind.speed*1000/3600>>0;
+      html += '<li>'+"Скорость ветра:"+' '+wspd+' '+"М/с"+'</li></ul>'; 
+      html += '<li class="currently">'+"Завтра: "+weather.forecast[2].high+"c&deg;"+'</li>'; 	  
+	  document.getElementById('version').innerHTML+=" weather updated; ";
       $("#weather").html(html);
     },
     error: function(error) {
       $("#weather").html('<p>'+error+'</p>');
     }
   });
-});
+}
 </script>
 <style type="text/css">
 @font-face {
@@ -150,25 +156,6 @@ sek=checkTime(sek);
 if (h==0)
 {
 h=24;
-}
-if(deltime!=h){
-deltime=h; 
-$.simpleWeather({
-    location: 'Donetsk, Ukraine',
-    woeid: '',
-    unit: 'c',
-    success: function(weather) {
-      html = '<h2><i class="icon-'+weather.code+'"></i> '+weather.temp+'&deg;'+weather.units.temp+'</h2>';
-	  var wspd=weather.wind.speed*1000/3600>>0;
-	  var wspdu="м/с"
-      html += '<li>'+"Скорость ветра:"+' '+wspd+' '+wspdu+'</li></ul>';
-  
-      $("#weather").html(html);
-    },
-    error: function(error) {
-      $("#weather").html('<p>'+error+'</p>');
-    }
-  });
 }
 document.getElementById('time').innerHTML=h-1+":"+m;
 t=setTimeout('startTime()',500);
