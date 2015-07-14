@@ -172,26 +172,18 @@ return cv;
 <script type="text/javascript">
 $(document).ready(function() {
      $("body").keypress(function(e) {
-          if (e.which == 403) {
-              setTV();
-          }else if(e.which == 404){
-		  setBroadcast();
-		  }else if(e.which == 405){
-		  setRadio();
-		  }else if(e.which == 406){
-		  setNews();
+          if (e.which == 13) {
+              bctorad();
+			  downpanelctrl();
+          }else if(e.which == 403){
+		  document.getElementById('multimedia').innerHTML='';
+		  window.NetCastSetDefaultAspectRatio('original');
+		  document.getElementById('multimedia').innerHTML='<object id="broadcast" type="application/x-netcast-av" width=1280 height=720 data="udp://@238.1.1.14:1234"  autoStart=true ></object>';
 		  }else{downpanelctrl();}
      });
 });
 </script> 
-<script type="text/javascript">
-function initialtion(){
-startTime(); 
-downpanelctrl(); 
-setBroadcast();
-window.NetCastSetDefaultAspectRatio('original');
-}
-</script>
+
 <style type="text/css">
 
 #time{
@@ -241,10 +233,11 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#21000000', e
 
         </style>
     </head>
-    <body onload="initialtion()">
+    <body onload="startTime(); bctorad(); downpanelctrl();">
 	
 	<div id="multimedia"></div>
 	
+ 	<input type="button" value="broadcast" id="radbrodcast" style="display:none;"/>
 	<p id="time">load</p>
 
 	<p id="version">new aplication/x-netcast-av</p>
@@ -254,39 +247,25 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#21000000', e
 <!-- SCRIPTS -->
 <script type="text/javascript">
 <!-- down panel controller -->
-var showdownpanel=1;
-
 function downpanelctrl(){
 document.getElementById('downpanel').style.display = 'block';
-setTimeout(function(){if(showdownpanel==0){document.getElementById('downpanel').style.display = 'none';}else{document.getElementById('downpanel').style.display = 'block';};}, 6000);
+hidewait=setTimeout(function(){if(document.getElementById('radbrodcast').value=="radio"){document.getElementById('downpanel').style.display = 'none';}else{document.getElementById('downpanel').style.display = 'block';};}, 6000);
 }
-
-function setBroadcast(){
-	showdownpanel=0;
-	downpanelctrl(); 
+<!-- swap betwen radio and broadcast -->
+function bctorad()
+{
+  currentvalue = document.getElementById('radbrodcast').value;
+  if(currentvalue == "broadcast")
+  {
     document.getElementById('multimedia').innerHTML='';
+    document.getElementById('radbrodcast').value="radio";
 	document.getElementById('multimedia').innerHTML='<object id="broadcast" type="application/x-netcast-broadcast" width=1280 height=720></object>';
-}
-
-function setRadio(){
-	showdownpanel=1;
-	downpanelctrl(); 
+  }else{
 	document.getElementById('multimedia').innerHTML='';
+    document.getElementById('radbrodcast').value="broadcast";
 	document.getElementById('multimedia').innerHTML='<object id="radioplay" type="audio/mpeg" data="http://online-radioroks.tavrmedia.ua/RadioROKS" width="0" height="0" id="media"></object>';
+  }
 }
-
-function setTV(){
-		showdownpanel=0;
-		downpanelctrl(); 
-		document.getElementById('multimedia').innerHTML='';		  
-		document.getElementById('multimedia').innerHTML='<object id="broadcast" type="application/x-netcast-av" width=1280 height=720 data="udp://@238.1.1.14:1234"  autoStart=true ></object>';
-}
-function setNews(){
-		showdownpanel=1;
-		downpanelctrl(); 
-		document.getElementById('multimedia').innerHTML='';	
-}
-
 </script>
 		</body>
 </html>
