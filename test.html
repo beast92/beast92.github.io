@@ -4,8 +4,12 @@
 <head>
 <meta charset="utf-8">
 <title>test</title>
-
-<link rel="import" href="news.html">
+<script type="text/javascript"> 
+function getpage(){
+$.get('./news.html',function(data){
+alert(data);
+});}
+</script>
 		<style>
 		body{background-color: grey;}
 		#nfeed{height:500px;}
@@ -32,15 +36,11 @@
 		</style>
 		<script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
 		<script src='http://code.responsivevoice.org/responsivevoice.js'></script>
-		<script type="text/javascript" language="JavaScript"> 
-$(document).ready(function(){ 
- 
- $('#knopka').click(function(){ 
- $('#rsscon').load('news.html #rsscon > *'); 
- }) 
- 
-}); 
-</script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="http://whiteposts.com/extsrc_js/extsrc.js"></script>
+	
+<!-- <script type="text/javascript" src="http://www.rss-script.ru/rss-script.php?charset=UTF-8&rss[]=http%3A%2F%2Fbash.im%2Frss%2F&rss[]=http%3A%2F%2Fsharij.net%2Ffeed&media=1&html=1&notitle=1&count=50"></script>;
+ -->
 </head>
 <body>
 <div id="console"></div>
@@ -48,15 +48,16 @@ $(document).ready(function(){
 <input 
   onclick="responsiveVoice.speak($('#text').val(), 'Russian Female');" type="button"  value="Play" 
 />
-
-<div id="rsssss">
-<script>
-	  document.write('<span style="color:red;">Hello</span>');
-      var link = document.querySelector('link[rel=import]');
-      var content = link.import.querySelector('#html');
-      document.body.appendChild(content.cloneNode(true));
-    </script>
+<input 
+  onclick="rssload()" type="button"  value="rss" 
+/>
+<input 
+  onclick="getpage();" type="button"  value="nc" 
+/>
+<SCRIPT TYPE='TEXT/JAVASCRIPT' SRC='http://ru-element.ru/script/_rss2.php?VAR1=http://bash.im/rss&VAR2=50&VAR3=HTML'></SCRIPT>
+<div id="rsscon">
 </div>
+
 </body>
 
 </html>
