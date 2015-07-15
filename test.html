@@ -1,0 +1,70 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+<meta charset="utf-8">
+<title>test</title>
+		<style>
+		body{background-color: grey;}
+		#nfeed{height:500px;}
+		/*div - контейнер для новости*/
+		.rss{margin:10px;  color:white;  padding-bottom: 15px;}
+		
+		/*div - контейнер для всей ленты*/
+		.rss_container{padding:10px;}
+		
+		/*div - контейнер для медиа-файлов*/
+		.media{background-color:#f0f0f0; background-image:url(http://www.rss-script.ru/img/skrepka.gif); background-repeat:no-repeat; padding-top: 5px;padding-bottom: 5px;padding-left: 13px}
+		
+		/*div - ссылка на медиа-файл*/
+		.media a{color:#000000;font-size:0.7em}
+		
+		/*div - изображение медиа-файл*/
+		.media a img{height:16px; border:0px; vertical-align: middle; text-decoration: none; margin:3px;}
+		
+		/*div - контейнер даты новости и заголовка rss-канала*/
+		.rssdate{font-size:0.7em; color:#c0c0c0; margin:7px; }
+		
+		/*div - ссылка даты новости и заголовка rss-канала*/
+		.rssdate a{color:#c0c0c0;}
+		</style>
+		<script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+		<script src='http://code.responsivevoice.org/responsivevoice.js'></script>
+		<script type="text/javascript" language="JavaScript"> 
+$(document).ready(function(){ 
+ 
+ $('#knopka').click(function(){ 
+ $('#rsscon').load('news.html #rsscon > *'); 
+ }) 
+ 
+}); 
+</script>
+</head>
+<body>
+<div id="console"></div>
+<textarea id="text" cols="45" rows="3">Hello world</textarea>
+<input 
+  onclick="responsiveVoice.speak($('#text').val(), 'Russian Female');" type="button"  value="Play" 
+/>
+
+<input 
+  onclick="document.getElementById('rsscon').style.display='block'" type="button"  value="on" 
+/>
+
+<input 
+  onclick="$('#rsscon').load('news.html #rsscon > *');" type="button"  value="off" 
+/>
+<div id="knopka">Я кнопка. Кликни меня!</div> 
+
+<div id="rsscon">
+</div>
+<!-- <marquee id="nfeed" direction="up" scrollamount="1">
+<script id="feed-1436792347978209" type="text/javascript" src="http://rss.bloople.net/?url=http%3A%2F%2Fsharij.net%2Ffeed%2F&limit=50&showtitle=false&forceutf8=true&fixbugs=true&nocache=true&type=js&id=1436792347978209"></script>
+<script id="feed-1436798719481248" type="text/javascript" src="http://rss.bloople.net/?url=http%3A%2F%2Fbash.im%2Frss%2F&limit=30&showtitle=false&forceutf8=true&fixbugs=true&nocache=true&type=js&id=1436798719481248"></script>
+
+
+</marquee> -->
+
+</body>
+
+</html>
