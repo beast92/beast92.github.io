@@ -4,6 +4,8 @@
 <head>
 <meta charset="utf-8">
 <title>test</title>
+
+<link rel="import" href="news.html">
 		<style>
 		body{background-color: grey;}
 		#nfeed{height:500px;}
@@ -47,24 +49,13 @@ $(document).ready(function(){
   onclick="responsiveVoice.speak($('#text').val(), 'Russian Female');" type="button"  value="Play" 
 />
 
-<input 
-  onclick="document.getElementById('rsscon').style.display='block'" type="button"  value="on" 
-/>
-
-<input 
-  onclick="$('#rsscon').load('news.html #rsscon > *');" type="button"  value="off" 
-/>
-<div id="knopka">Я кнопка. Кликни меня!</div> 
-
 <div id="rsscon">
+<script>
+      var link = document.querySelector('link[rel=import]');
+      var content = link.import.querySelector('#intro-dm');
+      document.body.appendChild(content.cloneNode(true));
+    </script>
 </div>
-<!-- <marquee id="nfeed" direction="up" scrollamount="1">
-<script id="feed-1436792347978209" type="text/javascript" src="http://rss.bloople.net/?url=http%3A%2F%2Fsharij.net%2Ffeed%2F&limit=50&showtitle=false&forceutf8=true&fixbugs=true&nocache=true&type=js&id=1436792347978209"></script>
-<script id="feed-1436798719481248" type="text/javascript" src="http://rss.bloople.net/?url=http%3A%2F%2Fbash.im%2Frss%2F&limit=30&showtitle=false&forceutf8=true&fixbugs=true&nocache=true&type=js&id=1436798719481248"></script>
-
-
-</marquee> -->
-
 </body>
 
 </html>
