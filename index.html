@@ -187,7 +187,7 @@ $(document).ready(function() {
 function initialtion(){
 startTime(); 
 downpanelctrl(); 
-setBroadcast();
+setNews();
 }
 </script>
 <style type="text/css">
@@ -244,8 +244,6 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#21000000', e
 	<div id="multimedia"></div>
 	
 	<p id="time">load</p>
-
-	<p id="version">new aplication/x-netcast-av</p>
 <div id="downpanel">
 	<div id="weather"></div>
 </div>
@@ -284,7 +282,7 @@ function setNews(){
 		showdownpanel=1;
 		downpanelctrl(); 
 		document.getElementById('multimedia').innerHTML='';	
-		document.getElementById('multimedia').innerHTML='<iframe scrolling="no" src="news.html" width="1200" height="520" frameborder="0" allowtransparency>';
+		document.getElementById('multimedia').innerHTML='<iframe scrolling="no" src="news.html" width="1270" height="470" frameborder="0" allowtransparency>';
 		
 }
 
