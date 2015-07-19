@@ -24,7 +24,7 @@ function getWeather() {
       html = '<h2><i class="icon-'+weather.code+'"></i> '+weather.temp+'&deg;'+weather.units.temp+'</h2>';
 	  var wspd=weather.wind.speed*1000/3600>>0;
       html += '<li>'+"Скорость ветра:"+' '+wspd+' '+"М/с"+'</li></ul>'; 
-      html += '<li class="currently">'+"Завтра: "+weather.forecast[2].high+"c&deg;"+'</li>'; 
+      html += '<li class="currently">'+"Завтра: "+weather.forecast[2].high+"&deg;c"+'</li>'; 
       $("#weather").html(html);
     },
     error: function(error) {
