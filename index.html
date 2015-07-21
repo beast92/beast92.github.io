@@ -5,8 +5,6 @@
         <title>TV Overlay</title>
         <meta http-equiv="content-type" content="application/ce-html+xml;charset=UTF-8;supportspointer=false"/>
 		<script language="javascript" src="http://beast92.github.io/js/keycode.js"></script>
-		<script language="javascript" src="http://beast92.github.io/js/common.js"></script>
-		<script language="javascript" src="http://beast92.github.io/js/menu.js"></script>
 		<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script> 
 		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.simpleWeather/3.0.2/jquery.simpleWeather.min.js"></script> 
 <script type="text/javascript">		
@@ -179,6 +177,10 @@ $(document).ready(function() {
 		  setRadio();
 		  }else if(e.which == 406){
 		  setNews();
+		  }else if(e.which == 33){
+		  ch_up();
+		  }else if(e.which == 34){
+		  ch_down();
 		  }else{downpanelctrl();}
      });
 });
@@ -251,7 +253,6 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#21000000', e
 <script type="text/javascript">
 <!-- down panel controller -->
 var showdownpanel=1;
-
 function downpanelctrl(){
 document.getElementById('downpanel').style.display = 'block';
 setTimeout(function(){if(showdownpanel==0){document.getElementById('downpanel').style.display = 'none';}else{document.getElementById('downpanel').style.display = 'block';};}, 6000);
@@ -262,28 +263,57 @@ function setBroadcast(){
 	downpanelctrl(); 
     document.getElementById('multimedia').innerHTML='';
 	document.getElementById('multimedia').innerHTML='<object id="broadcast" type="application/x-netcast-broadcast" width=1280 height=720></object>';
-}
+	curientmode="broadcast";
+	}
 
 function setRadio(){
 	showdownpanel=1;
-	downpanelctrl(); 
+	downpanelctrl();
 	document.getElementById('multimedia').innerHTML='';
 	document.getElementById('multimedia').innerHTML='<object id="radioplay" type="audio/mpeg" data="http://online-radioroks.tavrmedia.ua/RadioROKS" width="0" height="0" id="media"></object>';
-}
+	curientmode="radio";	
+	}
 
 function setTV(){
 		showdownpanel=0;
 		downpanelctrl(); 
 		document.getElementById('multimedia').innerHTML='';	
-		window.NetCastSetDefaultAspectRatio('original');		
+		window.NetCastSetDefaultAspectRatio('original');
 		document.getElementById('multimedia').innerHTML='<object id="broadcast" type="application/x-netcast-av" width=1280 height=720 data="udp://@238.1.1.14:1234"  autoStart=true ></object>';
-}
+		curientmode="tv";
+		}
 function setNews(){
 		showdownpanel=1;
-		downpanelctrl(); 
+		downpanelctrl();
+		curientmode="news";
 		document.getElementById('multimedia').innerHTML='';	
-		document.getElementById('multimedia').innerHTML='<iframe scrolling="no" src="news.html" width="1270" height="470" frameborder="0" allowtransparency>';
+		document.getElementById('multimedia').innerHTML='<iframe scrolling="no" src="news.html" width="1265" height="470" frameborder="0" allowtransparency>';
 		
+}
+
+<!-- chanel change -->
+var curientmode="tv";
+var curtvchanel=0;
+var chanellist = [ ['udp://@238.1.1.14:1234',"QTV"], ['udp://@238.1.1.10:1234',"Новый канал"] ];
+function ch_up(){
+if(curientmode=="tv"){
+if(curtvchanel==chanellist.length-1){
+curtvchanel=0;
+}else{
+curtvchanel++
+}
+document.getElementById('multimedia').innerHTML='<object id="broadcast" type="application/x-netcast-av" width=1280 height=720 data="'+chanellist[curtvchanel][0]+'"  autoStart=true ></object>';
+}
+}
+function ch_down(){
+if(curientmode=="tv"){
+if(curtvchanel==0){
+curtvchanel=chanellist.length-1;
+}else{
+curtvchanel--
+}
+document.getElementById('multimedia').innerHTML='<object id="broadcast" type="application/x-netcast-av" width=1280 height=720 data="'+chanellist[curtvchanel][0]+'"  autoStart=true ></object>';
+}
 }
 
 </script>
