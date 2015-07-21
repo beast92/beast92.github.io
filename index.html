@@ -251,6 +251,33 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#21000000', e
 </div>
 <!-- SCRIPTS -->
 <script type="text/javascript">
+
+<!-- chanel change -->
+var curientmode="tv";
+var curtvchanel=0;
+var chanellist = [ ['udp://@238.1.1.14:1234',"QTV"], ['udp://@238.1.1.10:1234',"Новый канал"], ['udp://@238.1.1.123:1234',"НЛО ТВ"], ['http://hls.novotelecom.ru/streaming/2x2tv/tvrec/playlist.m3u8',"2x2"] ];
+function ch_up(){
+if(curientmode=="tv"){
+if(curtvchanel==chanellist.length-1){
+curtvchanel=0;
+}else{
+curtvchanel++
+}
+document.getElementById('multimedia').innerHTML='<object id="broadcast" type="application/x-netcast-av" width=1280 height=720 data="'+chanellist[curtvchanel][0]+'"  autoStart=true ></object>';
+}
+}
+function ch_down(){
+if(curientmode=="tv"){
+if(curtvchanel==0){
+curtvchanel=chanellist.length-1;
+}else{
+curtvchanel--
+}
+document.getElementById('multimedia').innerHTML='<object id="broadcast" type="application/x-netcast-av" width=1280 height=720 data="'+chanellist[curtvchanel][0]+'"  autoStart=true ></object>';
+}
+}
+<!-- chanel change end -->
+
 <!-- down panel controller -->
 var showdownpanel=1;
 function downpanelctrl(){
@@ -279,7 +306,7 @@ function setTV(){
 		downpanelctrl(); 
 		document.getElementById('multimedia').innerHTML='';	
 		window.NetCastSetDefaultAspectRatio('original');
-		document.getElementById('multimedia').innerHTML='<object id="broadcast" type="application/x-netcast-av" width=1280 height=720 data="udp://@238.1.1.14:1234"  autoStart=true ></object>';
+		document.getElementById('multimedia').innerHTML='<object id="broadcast" type="application/x-netcast-av" width=1280 height=720 data="'+chanellist[curtvchanel][0]+'"  autoStart=true ></object>';
 		curientmode="tv";
 		}
 function setNews(){
@@ -291,30 +318,6 @@ function setNews(){
 		
 }
 
-<!-- chanel change -->
-var curientmode="tv";
-var curtvchanel=0;
-var chanellist = [ ['udp://@238.1.1.14:1234',"QTV"], ['udp://@238.1.1.10:1234',"Новый канал"] ];
-function ch_up(){
-if(curientmode=="tv"){
-if(curtvchanel==chanellist.length-1){
-curtvchanel=0;
-}else{
-curtvchanel++
-}
-document.getElementById('multimedia').innerHTML='<object id="broadcast" type="application/x-netcast-av" width=1280 height=720 data="'+chanellist[curtvchanel][0]+'"  autoStart=true ></object>';
-}
-}
-function ch_down(){
-if(curientmode=="tv"){
-if(curtvchanel==0){
-curtvchanel=chanellist.length-1;
-}else{
-curtvchanel--
-}
-document.getElementById('multimedia').innerHTML='<object id="broadcast" type="application/x-netcast-av" width=1280 height=720 data="'+chanellist[curtvchanel][0]+'"  autoStart=true ></object>';
-}
-}
 
 </script>
 		</body>
