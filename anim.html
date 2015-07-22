@@ -1,0 +1,33 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <style>
+    #pic1 {
+	top:0px;
+      position: absolute;
+      cursor: pointer;
+    }
+	#pic2 {
+	top:0px;
+      position: absolute;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <img id="pic2" src="layer1.png">
+  <img id="pic1" src="layer1.png">
+  <script>
+	var curpose = 0;
+    pic1.onclick = function() {
+      var timer = setInterval(function() {
+		if (curpose>2000){curpose=0;}
+        pic1.style.left = curpose+ 'px';
+		pic2.style.left = curpose-2000+ 'px';
+		curpose=curpose+1;
+}, 100);
+}
+</script>
+</body>
+</html>
