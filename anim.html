@@ -22,9 +22,9 @@
 	var curpose = 0;
     function panorama() {
       var timer = setInterval(function() {
-		if (curpose>2000){curpose=0;}
+		if (curpose>1980){curpose=0;}
         pic1.style.left = curpose+ 'px';
-		pic2.style.left = curpose-2000+ 'px';
+		pic2.style.left = curpose-1980+ 'px';
 		curpose=curpose+1;
 }, 100);
 }
