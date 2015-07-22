@@ -15,12 +15,12 @@
     }
   </style>
 </head>
-<body>
+<body onload="panorama()">
   <img id="pic2" src="layer1.png">
   <img id="pic1" src="layer1.png">
   <script>
 	var curpose = 0;
-    pic1.onclick = function() {
+    function panorama() {
       var timer = setInterval(function() {
 		if (curpose>2000){curpose=0;}
         pic1.style.left = curpose+ 'px';
