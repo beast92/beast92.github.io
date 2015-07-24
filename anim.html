@@ -13,7 +13,6 @@
       position: absolute;
       cursor: pointer;
     }
-	body{background-color:black}
   </style>
 </head>
 <body onload="panorama()">
@@ -23,10 +22,10 @@
 	var curpose = 0;
     function panorama() {
       var timer = setInterval(function() {
-		if (curpose>2628){curpose=0;}
+		if (curpose>6000){curpose=0;}
         pic1.style.left = curpose+ 'px';
-		pic2.style.left = curpose-2628+ 'px';
-		curpose=curpose+1;
+		pic2.style.left = curpose-6000+ 'px';
+		curpose=curpose+2;
 }, 100);
 }
 </script>
