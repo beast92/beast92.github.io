@@ -336,7 +336,7 @@ function setRadio(){
 function setTV(){
 		showdownpanel=0;
 		downpanelctrl(); 
-		shownote('Телевидение • QTV');
+		shownote('Телевидение • '+chanellist[curtvchanel][1]);
 		document.getElementById('multimedia').innerHTML='';	
 		window.NetCastSetDefaultAspectRatio('original');
 		document.getElementById('multimedia').innerHTML='<object id="broadcast" type="application/x-netcast-av" width=1280 height=720 data="'+chanellist[curtvchanel][0]+'"  autoStart=true ></object>';
