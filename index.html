@@ -275,7 +275,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#21000000', e
 <!-- chanel change -->
 var curientmode="tv";
 var curtvchanel=0;
-var chanellist = [ ['udp://@238.1.1.14:1234',"QTV"], ['udp://@238.1.1.10:1234',"Новый канал"], ['udp://@238.1.1.123:1234',"НЛО ТВ"], ['http://hls.novotelecom.ru/streaming/2x2tv/tvrec/playlist.m3u8',"2x2"], ['http://phone.pik-tv.com/live/piktv3pik3tv/playlist.m3u8',"ПИК ТВ"] ];
+var chanellist = [ ['udp://@238.1.1.14:1234',"QTV"], ['udp://@238.1.1.10:1234',"Новый Канал"], ['udp://@238.1.1.123:1234',"НЛО ТВ"], ['http://hls.novotelecom.ru/streaming/2x2tv/tvrec/playlist.m3u8',"2x2"], ['http://phone.pik-tv.com/live/piktv3pik3tv/playlist.m3u8',"ПИК ТВ"] ];
 function ch_up(){
 if(curientmode=="tv"){
 if(curtvchanel==chanellist.length-1){
@@ -317,6 +317,7 @@ setTimeout(function(){if(showdownpanel==0){document.getElementById('downpanel').
 function setBroadcast(){
 	showdownpanel=0;
 	downpanelctrl(); 
+	shownote('Видео-вход');
     document.getElementById('multimedia').innerHTML='';
 	document.getElementById('multimedia').innerHTML='<object id="broadcast" type="application/x-netcast-broadcast" width=1280 height=720></object>';
 	curientmode="broadcast";
@@ -325,6 +326,7 @@ function setBroadcast(){
 function setRadio(){
 	showdownpanel=1;
 	downpanelctrl();
+	shownote('Radio ROKS');
 	document.getElementById('multimedia').innerHTML='';
 	document.getElementById('multimedia').innerHTML='<object id="radioplay" type="audio/mpeg" data="http://online-radioroks.tavrmedia.ua/RadioROKS" width="0" height="0" id="media"></object>';
 	document.getElementById('multimedia').innerHTML+='<iframe id="broadcast" scrolling="no" src="anim.html" width="1280" height="720" frameborder="0" allowtransparency>';
@@ -334,6 +336,7 @@ function setRadio(){
 function setTV(){
 		showdownpanel=0;
 		downpanelctrl(); 
+		shownote('Телевидение • QTV');
 		document.getElementById('multimedia').innerHTML='';	
 		window.NetCastSetDefaultAspectRatio('original');
 		document.getElementById('multimedia').innerHTML='<object id="broadcast" type="application/x-netcast-av" width=1280 height=720 data="'+chanellist[curtvchanel][0]+'"  autoStart=true ></object>';
@@ -342,6 +345,7 @@ function setTV(){
 function setNews(){
 		showdownpanel=1;
 		downpanelctrl();
+		shownote('Новости');
 		curientmode="news";
 		document.getElementById('multimedia').innerHTML='';	
 		document.getElementById('multimedia').innerHTML='<iframe scrolling="no" src="news.html" width="1265" height="470" frameborder="0" allowtransparency>';
