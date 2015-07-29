@@ -216,6 +216,26 @@ background: linear-gradient(to bottom,  rgba(0,0,0,0.8) 0%,rgba(0,0,0,0.5) 100%)
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cc000000', endColorstr='#99000000',GradientType=0 ); /* IE6-9 */
 
 	}
+#note{
+		margin: 0;
+		color: #ffffff;
+		padding: 5px 5px;
+		font-family: Arial, Helvetica, sans-serif;
+		font-size:25px;
+		border-bottom-left-radius: 5px 5px;
+		text-align: center;
+		position: absolute;
+		right: 0px;
+		top: 0px;
+		/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#000000+0,000000+100&amp;0.8+0,0.6+100 */
+background: -moz-linear-gradient(top,  rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.5) 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(0,0,0,0.8)), color-stop(100%,rgba(0,0,0,0.5))); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top,  rgba(0,0,0,0.8) 0%,rgba(0,0,0,0.5) 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top,  rgba(0,0,0,0.8) 0%,rgba(0,0,0,0.5) 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top,  rgba(0,0,0,0.8) 0%,rgba(0,0,0,0.5) 100%); /* IE10+ */
+background: linear-gradient(to bottom,  rgba(0,0,0,0.8) 0%,rgba(0,0,0,0.5) 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cc000000', endColorstr='#99000000',GradientType=0 ); /* IE6-9 */
+}
 #broadcast{
 position: absolute;
 left: 0px;
@@ -244,7 +264,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#21000000', e
     <body onload="initialtion()">
 	
 	<div id="multimedia"></div>
-	
+	<div id="note">Новый Канал</div>
 	<p id="time">load</p>
 <div id="downpanel">
 	<div id="weather"></div>
@@ -263,6 +283,7 @@ curtvchanel=0;
 }else{
 curtvchanel++
 }
+shownote(chanellist[curtvchanel][1]);
 document.getElementById('multimedia').innerHTML='<object id="broadcast" type="application/x-netcast-av" width=1280 height=720 data="'+chanellist[curtvchanel][0]+'"  autoStart=true ></object>';
 }
 }
@@ -273,10 +294,18 @@ curtvchanel=chanellist.length-1;
 }else{
 curtvchanel--
 }
+
+shownote(chanellist[curtvchanel][1]);
 document.getElementById('multimedia').innerHTML='<object id="broadcast" type="application/x-netcast-av" width=1280 height=720 data="'+chanellist[curtvchanel][0]+'"  autoStart=true ></object>';
 }
 }
 <!-- chanel change end -->
+function shownote(messege){
+document.getElementById('note').innerHTML=messege;
+document.getElementById('note').style.display = 'block';
+setTimeout(function(){document.getElementById('note').style.display = 'none';}, 6000);
+}
+
 
 <!-- down panel controller -->
 var showdownpanel=1;
