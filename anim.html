@@ -6,20 +6,22 @@
     #pic1 {
 	top:0px;
       position: absolute;
-      cursor: pointer;
     }
 	#pic2 {
 	top:0px;
       position: absolute;
-      cursor: pointer;
     }
+	body{
+	height:1280px;
+<!-- background: -webkit-linear-gradient(top,  rgb(250,200,150) 0%,rgb(150,100,50) 100%); -->
+}
   </style>
 </head>
-<body onload="panorama()">
+<body onload="panorama();">
   <img id="pic2" src="layer1.png">
   <img id="pic1" src="layer1.png">
   <script>
-	var curpose = 0;
+	var curpose = 1000;
     function panorama() {
       var timer = setInterval(function() {
 		if (curpose>6000){curpose=0;}
@@ -28,6 +30,15 @@
 		curpose=curpose+2;
 }, 50);
 }
+</script>
+<script>
+var colpal = [ 250, 200, 150 ];
+function shuffle(o){
+    for(var j, x, i = o.length; i; j = Math.floor(Math.random() * i), x = o[--i], o[i] = o[j], o[j] = x);
+    return o;
+}
+colpal=shuffle(colpal);
+document.getElementsByTagName("body")[0].style.background='-webkit-linear-gradient(top,  rgb('+colpal[0]+','+colpal[1]+','+colpal[2]+'),rgb('+(colpal[0]-100)+','+(colpal[1]-100)+','+(colpal[2]-100)+'))';
 </script>
 </body>
 </html>
