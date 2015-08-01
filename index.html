@@ -188,7 +188,7 @@ $(document).ready(function() {
 function initialtion(){
 startTime(); 
 downpanelctrl(); 
-setNews();
+setRadio();
 }
 </script>
 <style type="text/css">
@@ -196,7 +196,7 @@ setNews();
 #time{
 		margin: 0;
 		color: #ffffff;
-		padding: 5px;
+		padding: 5px 10px;
 		font-family: Arial, Helvetica, sans-serif;
 		font-size:25px;
 		border-bottom-right-radius: 5px 5px;
@@ -301,7 +301,7 @@ function setBroadcast(){
 	}
 
 function setRadio(){
-	showdownpanel=1;
+	showdownpanel=0;
 	downpanelctrl();
 	shownote('Radio ROKS');
 	document.getElementById('multimedia').innerHTML='';
