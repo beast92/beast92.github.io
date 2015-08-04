@@ -180,6 +180,8 @@ $(document).ready(function() {
 		  ch_up();
 		  }else if(e.which == 34){
 		  ch_down();
+		  }else if(e.which == 13){
+		  launchQMENU()
 		  }else{
 		  shownote(e.which);
 		  downpanelctrl();}
@@ -330,7 +332,14 @@ function setNews(){
 		document.getElementById('multimedia').innerHTML='<iframe scrolling="no" src="news.html" width="1265" height="470" frameborder="0" allowtransparency>';
 		
 }
-
+function launchQMENU()
+{
+  if(curientmode=="radio"){
+    if(window.NetCastLaunchQMENU) {
+        window.NetCastLaunchQMENU();
+    }
+  }
+}
 
 </script>
 		</body>
