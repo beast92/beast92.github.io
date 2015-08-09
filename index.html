@@ -147,13 +147,15 @@ var tm=new Date();
 var h=tm.getHours();
 var m=tm.getMinutes();
 var sek=tm.getSeconds();
-m=checkTime(m);
-sek=checkTime(sek);
+
 if (h==0)
 {
 h=24;
 }
-document.getElementById('time').innerHTML='<font size="27px">'+(h-1)+'</font>:'+m;
+h--
+h=checkTime(h);
+m=checkTime(m);
+document.getElementById('time').innerHTML='<font size="26">'+(h)+'</font> |'+m;
 t=setTimeout('startTime()',500);
 }
 function checkTime(cv)
@@ -198,7 +200,7 @@ setRadio();
 		margin: 0;
 		color: #ffffff;
 		padding: 5px 10px;
-		font-size:25px;
+		font-size:25;
 		border-top-right-radius: 5px;
 		border-bottom-right-radius: 5px;
 		position: absolute;
