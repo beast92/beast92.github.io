@@ -288,11 +288,7 @@ showwaithide(document.getElementById('note'), 6);
 }
 
 function showwaithide(blockid, intervalsec){
-<<<<<<< HEAD
 blockid.style.display = 'block';
-=======
-document.getElementById('+blockid+').style.display = 'block';
->>>>>>> parent of 6c1a769... timeout fix2
 do {
 	setTimeout(function() { intervalsec=intervalsec; }, 1000);
 } while (intervalsec>=0);
