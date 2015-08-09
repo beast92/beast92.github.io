@@ -181,9 +181,7 @@ $(document).ready(function() {
 		  }else if(e.which == 34){
 		  ch_down();
 		  }else{
-		  downpanelctrl();
-		  shownote(e.which);
-		  }
+		  downpanelctrl();}
      });
 });
 </script> 
@@ -282,22 +280,16 @@ document.getElementById('multimedia').innerHTML='<object id="broadcast" type="ap
 <!-- chanel change end -->
 function shownote(messege){
 document.getElementById('note').innerHTML=messege;
-showwaithide('note', 6);
+document.getElementById('note').style.display = 'block';
+setTimeout(function(){document.getElementById('note').style.display = 'none';}, 2000);
 }
-
-function showwaithide(blockid, intervalsec){
-document.getElementById('+blockid+').style.display = 'block';
-do {
-	setTimeout(function() { intervalsec--; }, 1000);
-} while (intervalsec>=0);
-document.getElementById(blockid).style.display = 'none';
-};
 
 
 <!-- down panel controller -->
 var showdownpanel=1;
 function downpanelctrl(){
-if(showdownpanel==0){document.getElementById('downpanel').style.display = 'none';}else{showwaithide('downpanel', 6);};
+document.getElementById('downpanel').style.display = 'block';
+setTimeout(function(){if(showdownpanel==0){document.getElementById('downpanel').style.display = 'none';}else{document.getElementById('downpanel').style.display = 'block';};}, 6000);
 }
 
 function setBroadcast(){
