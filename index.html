@@ -154,7 +154,7 @@ h=24;
 }
 h--
 m=checkTime(m);
-document.getElementById('time').innerHTML='<font size="8">'+(h)+'</font> |'+m;
+document.getElementById('time').innerHTML='<font size="6">'+(h)+'</font>:'+m;
 t=setTimeout('startTime()',500);
 }
 function checkTime(cv)
@@ -200,11 +200,10 @@ setRadio();
 		color: #ffffff;
 		padding: 5px 10px;
 		font-size:25px;
-		border-top-right-radius: 5px;
 		border-bottom-right-radius: 5px;
 		position: absolute;
 		left: 0px;
-		top: 20px;
+		top: 0px;
 		background: -webkit-linear-gradient(left,  rgba(0,0,0,0.8) 0%,rgba(0,0,0,0.5) 100%);
 
 	}
