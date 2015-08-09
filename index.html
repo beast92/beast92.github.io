@@ -153,7 +153,7 @@ if (h==0)
 {
 h=24;
 }
-document.getElementById('time').innerHTML=h-1+":"+m;
+document.getElementById('time').innerHTML='<b>'+(h-1)+'</b>:'+m;
 t=setTimeout('startTime()',500);
 }
 function checkTime(cv)
