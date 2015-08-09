@@ -280,8 +280,8 @@ document.getElementById('multimedia').innerHTML='<object id="broadcast" type="ap
 <!-- chanel change end -->
 var countdown;
 function shownote(messege){
-document.getElementById('note').innerHTML=messege;
 clearTimeout(countdown);
+document.getElementById('note').innerHTML=messege;
 document.getElementById('note').style.display = 'block';
 countdown=setTimeout(function(){document.getElementById('note').style.display = 'none';}, 4000);
 
@@ -289,10 +289,12 @@ countdown=setTimeout(function(){document.getElementById('note').style.display = 
 
 
 <!-- down panel controller -->
+var countdownd;
 var showdownpanel=1;
 function downpanelctrl(){
+clearTimeout(countdownd);
 document.getElementById('downpanel').style.display = 'block';
-setTimeout(function(){if(showdownpanel==0){document.getElementById('downpanel').style.display = 'none';}else{document.getElementById('downpanel').style.display = 'block';};}, 6000);
+countdownd=setTimeout(function(){if(showdownpanel==0){document.getElementById('downpanel').style.display = 'none';}else{document.getElementById('downpanel').style.display = 'block';};}, 6000);
 }
 
 function setBroadcast(){
