@@ -286,7 +286,7 @@ showwaithide('note', 6);
 }
 
 function showwaithide(blockid, intervalsec){
-document.getElementById(blockid).style.display = 'block';
+document.getElementById('+blockid+').style.display = 'block';
 do {
 	setTimeout(function() { intervalsec--; }, 1000);
 } while (intervalsec>=0);
