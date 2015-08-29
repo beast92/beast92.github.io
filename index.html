@@ -235,7 +235,7 @@ bottom:0px;
 position: absolute;
 height: 230px;
 width:1280px;
-background: -webkit-linear-gradient(top,  rgba(0,0,0,0.13) 0%,rgba(0,0,0,0.88) 100%);
+background: -webkit-linear-gradient(top,  rgba(0,0,0,0.20) 0%,rgba(0,0,0,0.88) 100%);
 }
 
         </style>
@@ -342,12 +342,11 @@ function setNews(){
 function curdate(){
 var datan=new Date();
 var date=datan.getDate();
-var cyear=datan.getFullYear();
 
-var convert = ["пн","вт","ср","чт","пт","сб","вс","января","февраля","марта","апреля","мая","июня","июля","августа","сентября","октября","ноября","декабря"];
+var convert = ["понедельник","вторник","среда","четверг","пятница","субота","воскресенье","января","февраля","марта","апреля","мая","июня","июля","августа","сентября","октября","ноября","декабря"];
 var month = convert[datan.getMonth()+7];
 var wday=convert[datan.getDay()-1];
-		  return wday+", "+date+" "+month+" "+cyear;
+		  return wday+", "+date+" "+month;
 
 }
 
