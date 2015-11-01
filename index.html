@@ -148,11 +148,6 @@ var h=tm.getHours();
 var m=tm.getMinutes();
 var sek=tm.getSeconds();
 
-if (h==0)
-{
-h=24;
-}
-h--
 h=checkTime(h);
 m=checkTime(m);
 document.getElementById('time').innerHTML=h+':'+m;
